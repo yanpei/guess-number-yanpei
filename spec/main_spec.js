@@ -8,18 +8,52 @@ chai.use(sinonChai);
 
 var main = require("../lib/main.js");
 
+//测试compareNumber函数
+describe("测试猜数字游戏", function(){
+  //  sinon.spy(console, 'log');
+    it("测试转换值", function(){
+        var result = main.changeToArr(1234);
+        var str_result='';
+        for (var i=0;i<result.length;i++){
+             str_result+=result[i]+'\n';
+        }
+        var expect_string = '1\n2\n3\n4\n';
 
-describe("测试描述", function(){
-    sinon.spy(console, 'log');
+        expect(expect_string).to.equal(str_result);
+    });
 
-    it("测试用例1", function(){
-
-        var result = main();
-        var expect_string = '';
-        
+//测试compareNumber函数
+    it("测试数字一样，位置一样", function(){
+        var result = main.compareNumber(1234,1234);
+        var expect_string = '4A0B';
         expect(expect_string).to.equal(result);
     });
 
+    it("测试数字一样、位置不一样", function(){
+        var result = main.compareNumber(1234,4321);
+        var expect_string = '0A4B';
+        expect(expect_string).to.equal(result);
+    });
+
+    it("测试数字一样、位置部分一样", function(){
+        var result = main.compareNumber(1234,1243);
+        var expect_string = '2A2B';
+        expect(expect_string).to.equal(result);
+    });
+
+    it("测试数字不一样、位置不一样", function(){
+        var result = main.compareNumber(1234,5678);
+        var expect_string = '0A0B';
+        expect(expect_string).to.equal(result);
+    });
+
+    it("测试数字部分一样、位置部分一样", function(){
+        var result = main.compareNumber(1234,1523);
+        var expect_string = '1A2B';
+        expect(expect_string).to.equal(result);
+    });
+
+/*
     it("测试用例2", function(){
 
         main();
@@ -28,4 +62,5 @@ describe("测试描述", function(){
 
         expect(expect_string).to.equal(result);
     });
+    */
 });
