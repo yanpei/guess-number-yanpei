@@ -7,10 +7,10 @@ var expect = chai.expect;
 chai.use(sinonChai);
 
 var main = require("../lib/main.js");
-
-//测试compareNumber函数
+//测试猜字游戏
 describe("测试猜数字游戏", function(){
   //  sinon.spy(console, 'log');
+  //测试changeToArr函数
     it("测试转换值", function(){
         var result = main.changeToArr(1234);
         var str_result='';
