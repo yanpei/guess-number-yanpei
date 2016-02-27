@@ -53,6 +53,28 @@ describe("测试猜数字游戏", function(){
         expect(expect_string).to.equal(result);
     });
 
+　//测试answerGenerator函数
+　it("测试随机生成的是一个数",function(){
+          var result = typeof(main.answerGenerator());
+          var expect_string = 'number';
+          expect(expect_string).to.equal(result);
+    });
+    it("测试随机生成的是一个四位数",function(){
+              var result = main.answerGenerator()>=1000&&main.answerGenerator()<=9999;
+              console.log("result:  "+result);
+              var expect_string = true;
+              expect(expect_string).to.equal(result);
+      });
+
+      it("测试随机生成数每位都不重复",function(){
+                var answer = main.answerGenerator();
+                var answerArr = answer.toString().split("");
+                console.log("answerArr:  "+answerArr);
+                var result = (answerArr[0]!=answerArr[1]&&answerArr[0]!=answerArr[2]&&answerArr[0]!=answerArr[3]&&answerArr[1]!=answerArr[2]&&answerArr[1]!=answerArr[3]&&answerArr[2]!=answerArr[3]);
+                var expect_string = true;
+                expect(expect_string).to.equal(result);
+        });
+
 /*
     it("测试用例2", function(){
 
