@@ -10,18 +10,6 @@ var main = require("../lib/main.js");
 //测试猜字游戏
 describe("测试猜数字游戏", function(){
   //  sinon.spy(console, 'log');
-  //测试changeToArr函数
-    it("测试转换值", function(){
-        var result = main.changeToArr(1234);
-        var str_result='';
-        for (var i=0;i<result.length;i++){
-             str_result+=result[i]+'\n';
-        }
-        var expect_string = '1\n2\n3\n4\n';
-
-        expect(expect_string).to.equal(str_result);
-    });
-
 //测试compareNumber函数
     it("测试数字一样，位置一样", function(){
         var result = main.compareNumber(1234,1234);
